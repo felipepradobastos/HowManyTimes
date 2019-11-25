@@ -21,26 +21,6 @@
             android:layout_height="369dp"
             android:background="@drawable/logo_splash" />
 
-        <LinearLayout
-            android:padding="20px"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/BTNsplashContinue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30px"
-                android:layout_marginTop="30px"
-                android:background="@drawable/splash_button"
-                android:padding="30px"
-                android:text="Prosseguir"
-                android:textColor="#FFFFFFFF"
-                android:textSize="20sp" />
-
-        </LinearLayout>
     </LinearLayout>
 
 

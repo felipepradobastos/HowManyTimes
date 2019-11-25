@@ -30,13 +30,11 @@ public class Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setStatusBarColor(0XD3272750);
+        getSupportActionBar().hide();
         task = new Task();
         Listtasks = new ArrayList<>();
-        teste = task.initializeData();
-//        for(int i=0;i<teste.size();i++){
-//            TaskDAO taskDao = new TaskDAO(getApplicationContext());
-//            taskDao.insertTask(teste.get(i));
-//        }
+
 
         imgAdd = (ImageView) findViewById(R.id.ImgViewMainActivity);
         rvMain = (RecyclerView) findViewById(R.id.rvMain);
@@ -61,7 +59,6 @@ public class Main extends AppCompatActivity {
 
         LinearLayoutManager llm = new LinearLayoutManager(getApplicationContext());
         rvMain.setLayoutManager(llm);
-        rvMain.setHasFixedSize(true);
         TaskAdapter adapter = new TaskAdapter(Listtasks, getApplicationContext());
         rvMain.setAdapter(adapter);
         imgAdd.setOnClickListener(new View.OnClickListener() {

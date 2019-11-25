@@ -4,11 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@drawable/splash_gradient"
-    android:orientation="horizontal"
-    android:padding="40dp"
-    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="40dp"
+    android:layout_gravity="center"
+    android:paddingRight="40dp"
     android:layout_height="match_parent"
     tools:context="ffscompany.howmanytimes.Activitys.Login">
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/logo_splash"/>
+
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,31 +28,66 @@
         android:orientation="vertical">
 
         <TextView
+            android:gravity="center"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/Login"
             android:textColor="#FFF"
-            android:textSize="25dp" />
+            android:textSize="35dp" />
         <EditText
-            android:layout_width="match_parent"
-            android:background="@drawable/loginscreen_edittext"
-            android:layout_height="wrap_content"
             android:id="@+id/ETloginls"
+            android:layout_width="match_parent"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/loginscreen_edittext"
+            android:layout_height="30dp"
+            android:paddingLeft="8dp"
+            android:hint="Email"
+            android:textColor="@color/White"
+            android:textColorHint="@color/White"
             />
         <EditText
             android:layout_width="match_parent"
+            android:inputType="textPassword"
             android:background="@drawable/loginscreen_edittext"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:hint="Senha"
+            android:textColor="@color/White"
+            android:textColorHint="@color/White"
+            android:paddingLeft="8dp"
             android:id="@+id/ETpasswordls"
             />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Login"
-            android:id="@+id/BTNlogarls"
-            />
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:textColor="@color/White"
+                android:background="@drawable/splash_button"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Registro"
+                android:id="@+id/BTNregisterrls"
+                />
+            <Button
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Login"
+                android:id="@+id/BTNlogarls"
+                android:background="@drawable/splash_button"
+                android:textColor="@color/White"
+                />
 
+        </LinearLayout>
 
     </LinearLayout>
-
+        <ImageView
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/ffscompany"
+        />
 </LinearLayout>

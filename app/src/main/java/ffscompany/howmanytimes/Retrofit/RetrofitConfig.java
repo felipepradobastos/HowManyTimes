@@ -10,7 +10,7 @@ public class RetrofitConfig {
 
     public RetrofitConfig() {
         this.retrofit = new Retrofit.Builder()
-                .baseUrl("https://login-service-signomo.herokuapp.com/")
+                .baseUrl("https://howmanytimesapp.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }

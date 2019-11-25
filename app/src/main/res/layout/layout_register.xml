@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_gravity="center"
     android:layout_height="match_parent"
-    tools:context="ffscompany.howmanytimes.Activitys.AddTask"
+    tools:context="ffscompany.howmanytimes.Activitys.Register"
     android:background="@drawable/splash_gradient"
     android:orientation="vertical"
     >
@@ -29,23 +29,48 @@
         android:layout_marginRight="20dp"
         >
         <EditText
-            android:id="@+id/ETAddTaskName"
+            android:id="@+id/ETRegisterEmail"
             android:layout_width="match_parent"
             android:background="@drawable/loginscreen_edittext"
             android:layout_height="30dp"
+            android:inputType="textEmailAddress"
             android:paddingLeft="8dp"
-            android:hint="Tarefa"
+            android:hint="Email"
             android:textColor="@color/White"
             android:textColorHint="@color/White"
             />
         <EditText
             android:layout_marginTop="4dp"
-            android:id="@+id/ETAddTaskDoTimes"
+            android:id="@+id/ETRegisterNome"
             android:layout_width="match_parent"
             android:background="@drawable/loginscreen_edittext"
             android:layout_height="30dp"
             android:paddingLeft="8dp"
-            android:hint="DoTimes"
+            android:hint="Nome"
+            android:textColor="@color/White"
+            android:textColorHint="@color/White"
+            />
+        <EditText
+            android:layout_marginTop="4dp"
+            android:id="@+id/ETRegisterSenha"
+            android:layout_width="match_parent"
+            android:background="@drawable/loginscreen_edittext"
+            android:layout_height="30dp"
+            android:paddingLeft="8dp"
+            android:hint="Senha"
+            android:inputType="textPassword"
+            android:textColor="@color/White"
+            android:textColorHint="@color/White"
+            />
+        <EditText
+            android:layout_marginTop="4dp"
+            android:id="@+id/ETRegisterCelular"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:background="@drawable/loginscreen_edittext"
+            android:layout_height="30dp"
+            android:paddingLeft="8dp"
+            android:hint="Telefone"
             android:textColor="@color/White"
             android:textColorHint="@color/White"
             />
@@ -54,17 +79,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
-        <Button
-            android:hint="Adicionar"
-            android:textColorHint="@color/White"
-            android:textColor="@color/White"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:id="@+id/BTNAddTask"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/cadastro_button"
-            />
+            <Button
+                android:hint="Registre-me"
+                android:textColorHint="@color/White"
+                android:textColor="@color/White"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:id="@+id/BTNRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cadastro_button"
+                />
         </LinearLayout>
 
     </LinearLayout>

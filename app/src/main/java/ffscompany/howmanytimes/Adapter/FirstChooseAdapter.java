@@ -1,6 +1,7 @@
 package ffscompany.howmanytimes.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.media.Image;
 import android.support.annotation.NonNull;
@@ -10,13 +11,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
-import java.util.List;
 
 import ffscompany.howmanytimes.DAOS.TaskDAO;
 import ffscompany.howmanytimes.Model.Task;
@@ -24,73 +25,65 @@ import ffscompany.howmanytimes.R;
 
 public class FirstChooseAdapter extends RecyclerView.Adapter<FirstChooseAdapter.TaskViewHolder>{
 
-    private ArrayList<Task> tasks;
-    private Context mContext;
+    private ArrayList<Task> tasksx;
+    private Context mContextx;
 
 
     public FirstChooseAdapter(ArrayList<Task> tasks, Context mContext) {
-        this.tasks = tasks;
-        this.mContext = mContext;
+        this.tasksx = tasks;
+        this.mContextx = mContext;
     }
 
     public static class TaskViewHolder extends RecyclerView.ViewHolder {
-        CardView cv;
-        TextView taskName;
-        TextView taskDoTimes;
-        ImageView taskPhoto;
-        CheckBox checkTask;
-        Button btnTeste;
+        CardView cvx;
+        TextView taskNamex;
+        TextView taskDoTimesx;
+        ImageView taskPhotox;
+        CheckBox checkBoxTestex;
 
-        TaskViewHolder(View itemView) {
-            super(itemView);
-            cv = (CardView)itemView.findViewById(R.id.CardViewFirsttask);
-            taskName = (TextView)itemView.findViewById(R.id.TextViewCardViewFirstTask);
-            taskPhoto = (ImageView)itemView.findViewById(R.id.ImgViewCardViewFirstTask);
-            btnTeste = (Button)itemView.findViewById(R.id.CardViewAdd);
-            taskDoTimes =(TextView) itemView.findViewById(R.id.DoTimesTV);
+        TaskViewHolder(View itemView2) {
+            super(itemView2);
+            cvx = (CardView) itemView2.findViewById(R.id.CardViewFirstTaskFT);
+            taskNamex = (TextView) itemView2.findViewById(R.id.TextViewCardViewFirstTaskFT);
+            taskPhotox = (ImageView) itemView2.findViewById(R.id.ImgViewCardViewFirstTaskFT);
+            checkBoxTestex = (CheckBox)itemView2.findViewById(R.id.CardViewAddFT);
         }
     }
 
     @NonNull
     @Override
     public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.cardview_firsttasks, viewGroup, false);
-        TaskViewHolder pvh = new TaskViewHolder(v);
-        return pvh;
+        View v = LayoutInflater.from(mContextx).inflate(R.layout.cardview_firstlogin, viewGroup, false);
+        TaskViewHolder pvhx = new TaskViewHolder(v);
+        return pvhx;
 
     }
 
     @Override
-    public void onBindViewHolder(final TaskViewHolder taskViewHolder, int i) {
-        taskViewHolder.taskName.setText(tasks.get(i).getName());
-        String dotimes = String.valueOf(tasks.get(i).getDoTimes());
-        taskViewHolder.taskDoTimes.setText(dotimes);
-        taskViewHolder.taskPhoto.setImageResource(tasks.get(i).getPhotoId());
+    public void onBindViewHolder(final TaskViewHolder TaskViewHolder, int i) {
+        Log.w("Teste", tasksx.get(i).getName());
+        String name = tasksx.get(i).getName();
+        TaskViewHolder.taskNamex.setText(name);
+        TaskViewHolder.taskPhotox.setImageResource(tasksx.get(i).getPhotoId());
         final int z=i;
-        taskViewHolder.btnTeste.setOnClickListener(new View.OnClickListener() {
+        TaskViewHolder.checkBoxTestex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TaskDAO taskDao = new TaskDAO(mContext);
-                int Onclick = Integer.parseInt(taskViewHolder.taskDoTimes.getText().toString());
-                Onclick++;
-                String dotimes = String.valueOf(Onclick);
-                tasks.get(z).setDoTimes(Onclick);
-                taskViewHolder.taskDoTimes.setText(dotimes);
-                Log.w("Name:" , tasks.get(z).getName());
-                taskDao.IncreaseDoTimes(tasks.get(z));
+                TaskDAO taskDao = new TaskDAO(mContextx);
+                if(TaskViewHolder.checkBoxTestex.isChecked()){
+                    taskDao.insertTask(tasksx.get(z));
+//                    Intent i = new Intent(mContext, Main.class);
+//                    mContext.startActivity(i);
+                }else {
+                    taskDao.deletaRegistro(tasksx.get(z));
+                }
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return tasks.size();
-    }
-
-    public void insereSelecionados(){
-        for (int i=0;i<getItemCount();i++){
-
-        }
+        return tasksx.size();
     }
 
 

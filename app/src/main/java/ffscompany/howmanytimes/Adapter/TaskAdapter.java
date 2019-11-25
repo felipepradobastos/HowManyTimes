@@ -33,6 +33,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         this.mContext = mContext;
     }
 
+
+
     public static class TaskViewHolder extends RecyclerView.ViewHolder {
         CardView cv;
         TextView taskName;

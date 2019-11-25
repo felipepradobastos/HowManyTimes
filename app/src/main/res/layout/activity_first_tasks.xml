@@ -5,27 +5,30 @@
     android:layout_width="match_parent"
     android:background="@color/BG_Splash"
     android:orientation="vertical"
+    android:scrollbars="vertical"
     android:layout_height="match_parent"
     tools:context="ffscompany.howmanytimes.Activitys.FirstTasks">
-
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"/>
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Bem vindo ao HowManyTimes, que tal começar escolhendo algumas atividades ?"
+            android:textColor="@color/White"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="Bem vindo ao HowManyTimes que tal começar escolhendo algumas atividades ?"
-        android:textColor="@color/White"
-        android:textSize="20dp"
-        android:textStyle="italic" />
+
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rvFirstTask"
         />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

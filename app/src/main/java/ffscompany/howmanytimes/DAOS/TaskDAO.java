@@ -96,9 +96,9 @@ public class TaskDAO {
 
 
     public void deletaRegistro(Task task){
-        String where = connection.ID + "=" + task.getId();
+        String where = "NAME" + "=" + task.getName();
         db = connection.getReadableDatabase();
-        db.delete(connection.TASK,where,null);
+        db.delete("TASK",where,null);
         db.close();
     }
 }

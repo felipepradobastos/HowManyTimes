@@ -30,7 +30,7 @@ public class DBConnection extends SQLiteOpenHelper {
     public static final String DOTIMES = "doTimes";
 
     public DBConnection(Context context){
-        super(context, DBNAME,null,3);
+        super(context, DBNAME,null,6);
     }
 
     @Override

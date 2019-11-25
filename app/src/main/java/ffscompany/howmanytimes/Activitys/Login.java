@@ -22,12 +22,15 @@ public class Login extends AppCompatActivity {
     Button btnLogar;
     EditText ETpassword;
     EditText ETlogin;
+    Button btnNovo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().setStatusBarColor(0XD3272750);
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_login);
         btnLogar =(Button) findViewById(R.id.BTNlogarls);
+        btnNovo = (Button) findViewById(R.id.BTNregisterrls);
         ETlogin = (EditText) findViewById(R.id.ETloginls);
         ETpassword = (EditText) findViewById(R.id.ETpasswordls);
         btnLogar.setOnClickListener(new View.OnClickListener() {
@@ -36,30 +39,44 @@ public class Login extends AppCompatActivity {
                 submitLoginInfo();
             }
         });
+        btnNovo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(getApplicationContext(), Register.class);
+                startActivity(it);
+            }
+        });
     }
 
     private void submitLoginInfo() {
         String email = ETlogin.getText().toString().trim();
         String password = ETpassword.getText().toString().trim();
-        Log.w("Email", email);
-        Log.w("Senha", password);
-        Call<Usuario> call = new RetrofitConfig().getUsuarioService().login(new LoginDetails(email,password));
+        Call<Usuario> call = new RetrofitConfig().getUsuarioService().login(email, password);
         call.enqueue(new Callback<Usuario>() {
             @Override
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
-                Usuario userDetails = response.body();
-                if (userDetails == null || userDetails.getId() == null) {
+                if (response.body() == null || response.body().getEmail() == null) {
                     Toast.makeText(getApplicationContext(), "Credenciais inválidas", Toast.LENGTH_LONG)
                             .show();
                 }else{
-                    PreferenceUtils.saveNome(userDetails.getName(),getApplicationContext());
-                    PreferenceUtils.saveId(userDetails.getId(), getApplicationContext());
-                    PreferenceUtils.saveEmail(userDetails.getEmail(), getApplicationContext());
-                    //PreferenceUtils.saveNasc(userDetails.getBirthDate(), getApplicationContext());
-//                  PreferenceUtils.savebirthTime(userDetails.getBirthTime(), getContext());
-                    //Intent i = new Intent(getApplicationContext(), Main.class);
-                    Intent i = new Intent(getApplicationContext(), Main.class);
-                    startActivity(i);
+                    Log.w("getEmail",response.body().getEmail());
+                    Log.w("getPassword(",response.body().getSenha());
+                    Log.w("getCelular",response.body().getCelular());
+                    Log.w("getPrimeiro_login", response.body().getPrimeiro_login());
+                    Usuario userLoggedIn = new Usuario(response.body().getEmail(),response.body().getSenha(),response.body().getCelular(),response.body().getPrimeiro_login());
+                    Intent i = null;
+                    if(userLoggedIn.getPrimeiro_login().equals("true")){
+                        i = new Intent(getApplicationContext(), FirstTasks.class);
+                    }else if(userLoggedIn.getPrimeiro_login().equals("false")){
+                        i = new Intent(getApplicationContext(), Main.class);
+                    }
+                    if(i!=null){
+                        i.putExtra("Usuario", userLoggedIn);
+                        startActivity(i);
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Algo errado aconteceu :), Tente novamente.", Toast.LENGTH_LONG)
+                                .show();
+                    }
                 }
             }
 

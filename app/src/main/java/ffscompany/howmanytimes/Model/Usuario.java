@@ -6,38 +6,29 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 
 public class Usuario implements Parcelable {
-    private ArrayList<Task> taskList;
-    private String id;
-    private String name;
     private String email;
-    private String birthDate;
-    private String birthTime;
-    private String createdAt;
-    private String updatedAt;
-
-    public Usuario(ArrayList<Task> taskList, String id, String name, String email, String birthDate, String birthTime, String createdAt, String updatedAt) {
-        this.taskList = taskList;
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.birthDate = birthDate;
-        this.birthTime = birthTime;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
+    private String nome;
+    private String senha;
+    private String celular;
+    private String primeiro_login;
 
     public Usuario() {
     }
 
+    public Usuario(String email, String senha, String celular, String primeiro_login) {
+        this.email = email;
+        this.nome = nome;
+        this.senha = senha;
+        this.celular = celular;
+        this.primeiro_login = primeiro_login;
+    }
+
     protected Usuario(Parcel in) {
-        taskList = in.createTypedArrayList(Task.CREATOR);
-        id = in.readString();
-        name = in.readString();
         email = in.readString();
-        birthDate = in.readString();
-        birthTime = in.readString();
-        createdAt = in.readString();
-        updatedAt = in.readString();
+        nome = in.readString();
+        senha = in.readString();
+        celular = in.readString();
+        primeiro_login = in.readString();
     }
 
     public static final Creator<Usuario> CREATOR = new Creator<Usuario>() {
@@ -52,30 +43,6 @@ public class Usuario implements Parcelable {
         }
     };
 
-    public ArrayList<Task> getTaskList() {
-        return taskList;
-    }
-
-    public void setTaskList(ArrayList<Task> taskList) {
-        this.taskList = taskList;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -84,38 +51,37 @@ public class Usuario implements Parcelable {
         this.email = email;
     }
 
-    public String getBirthDate() {
-        return birthDate;
+    public String getNome() {
+        return nome;
     }
 
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getBirthTime() {
-        return birthTime;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setBirthTime(String birthTime) {
-        this.birthTime = birthTime;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
-    public String getCreatedAt() {
-        return createdAt;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
-    public String getUpdatedAt() {
-        return updatedAt;
+    public String getPrimeiro_login() {
+        return primeiro_login;
     }
 
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setPrimeiro_login(String primeiro_login) {
+        this.primeiro_login = primeiro_login;
     }
-
 
     @Override
     public int describeContents() {
@@ -124,13 +90,10 @@ public class Usuario implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeTypedList(taskList);
-        dest.writeString(id);
-        dest.writeString(name);
         dest.writeString(email);
-        dest.writeString(birthDate);
-        dest.writeString(birthTime);
-        dest.writeString(createdAt);
-        dest.writeString(updatedAt);
+        dest.writeString(nome);
+        dest.writeString(senha);
+        dest.writeString(celular);
+        dest.writeString(primeiro_login);
     }
 }

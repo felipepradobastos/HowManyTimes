@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activitys.AddTask"></activity>
+        <activity android:name=".Activitys.Register"></activity>
+        <activity android:name=".Activitys.AddTask" />
         <activity
             android:name=".Activitys.FirstTasks"
             android:label="@string/title_activity_first_tasks"

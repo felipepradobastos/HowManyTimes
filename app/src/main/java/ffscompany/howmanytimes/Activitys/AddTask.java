@@ -26,6 +26,8 @@ public class AddTask extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setStatusBarColor(0XD3272750);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_add_task);
         doTimes = (EditText) findViewById(R.id.ETAddTaskDoTimes);
         name = (EditText) findViewById(R.id.ETAddTaskName);
@@ -37,15 +39,19 @@ public class AddTask extends AppCompatActivity {
                 String currentDateTimeString = DateFormat.getDateInstance().format(new Date(2019,11,29));
                 Task task = new Task();
 
-                task.setPhotoId( R.drawable.imagenotavailable);
-                task.setName(name.getText().toString());
-                task.setDoTimes(Integer.parseInt(doTimes.getText().toString()));
-                task.setCreationTime(currentDateTimeString);
-                TaskDAO taskDao = new TaskDAO(getApplicationContext());
-                taskDao.insertTask(task);
-                Intent i = new Intent(getApplicationContext(),Main.class);
-                startActivity(i);
-
+                if(name.getText().toString().equals("") || doTimes.getText().toString().equals("")){
+                    Toast.makeText(getApplicationContext(), "Preencha todos os campos !", Toast.LENGTH_LONG)
+                            .show();
+                }else{
+                    task.setPhotoId( R.drawable.imagenotavailable);
+                    task.setName(name.getText().toString());
+                    task.setDoTimes(Integer.parseInt(doTimes.getText().toString()));
+                    task.setCreationTime(currentDateTimeString);
+                    TaskDAO taskDao = new TaskDAO(getApplicationContext());
+                    taskDao.insertTask(task);
+                    Intent i = new Intent(getApplicationContext(),Main.class);
+                    startActivity(i);
+                }
             }
         });
     }
