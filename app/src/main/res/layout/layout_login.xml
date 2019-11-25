@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/splash_gradient"
+    android:orientation="horizontal"
+    android:padding="40dp"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    tools:context="ffscompany.howmanytimes.Activitys.Login">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Login"
+            android:textColor="#FFF"
+            android:textSize="25dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:background="@drawable/loginscreen_edittext"
+            android:layout_height="wrap_content"
+            android:id="@+id/ETloginls"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:background="@drawable/loginscreen_edittext"
+            android:layout_height="wrap_content"
+            android:id="@+id/ETpasswordls"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Login"
+            android:id="@+id/BTNlogarls"
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>

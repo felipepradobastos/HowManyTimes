@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">How_many_times</string>
+    <string name="btnContinue">Continuar</string>
+    <string name="Login">Login</string>
+    <string name="Password">Senha</string>
+    <string name="title_activity_first_tasks">FirstTasks</string>
+    <string name="action_settings">Settings</string>
+</resources>

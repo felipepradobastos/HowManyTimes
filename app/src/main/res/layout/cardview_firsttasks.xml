@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/BG_Splash"
+    android:scrollbars="vertical"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    app:layout_goneMarginBottom="4dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/CardViewFirsttask"
+        android:layout_width="match_parent"
+        android:background="@color/BG_CardView"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@color/BG_CardView"
+            >
+
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:layout_weight="0"
+                android:id="@+id/ImgViewCardViewFirstTask"
+                android:layout_width="200dp"
+                android:layout_height="120dp" />
+
+            <TextView
+                android:id="@+id/TextViewCardViewFirstTask"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Tênis \nde \nMesa"
+                android:textColor="@color/White"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/DoTimesTV"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:textStyle="bold"
+                android:textSize="40dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:hint="0"
+                android:text="0"
+                android:textColor="@color/White" />
+
+            <Button
+                android:id="@+id/CardViewAdd"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_height="70dp"
+                android:background="@mipmap/ic_add_roxo"
+                android:layout_marginRight="5dp"
+                />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
