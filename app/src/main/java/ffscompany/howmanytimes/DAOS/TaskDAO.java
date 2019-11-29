@@ -25,7 +25,6 @@ public class TaskDAO {
         values = new ContentValues();
         values.put(connection.NAME, task.getName());
         values.put(connection.DOTIMES, task.getDoTimes());
-        values.put(connection.CREATIONDATE, task.getCreationTime());
         values.put("PHOTOID", task.getPhotoId());
 
         result = db.insert(DBConnection.TASK, null, values);
@@ -34,7 +33,8 @@ public class TaskDAO {
         if (result ==-1)
             return "Erro ao inserir registro";
         else
-            return "Registro Inserido com sucesso";
+            Log.w("Insercao:", "Sucesso, "+task.getName());
+            return "";
     }
 
     public Cursor getTasks(){

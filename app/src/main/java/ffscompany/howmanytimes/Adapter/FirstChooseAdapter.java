@@ -61,25 +61,24 @@ public class FirstChooseAdapter extends RecyclerView.Adapter<FirstChooseAdapter.
 
     @Override
     public void onBindViewHolder(final TaskViewHolder TaskViewHolder, int i) {
-        Log.w("Teste", tasksx.get(i).getName());
         String name = tasksx.get(i).getName();
         TaskViewHolder.taskNamex.setText(name);
         TaskViewHolder.taskPhotox.setImageResource(tasksx.get(i).getPhotoId());
         final int z=i;
+        final TaskDAO taskDao = new TaskDAO(mContextx);
         TaskViewHolder.checkBoxTestex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TaskDAO taskDao = new TaskDAO(mContextx);
                 if(TaskViewHolder.checkBoxTestex.isChecked()){
                     taskDao.insertTask(tasksx.get(z));
-//                    Intent i = new Intent(mContext, Main.class);
-//                    mContext.startActivity(i);
-                }else {
-                    taskDao.deletaRegistro(tasksx.get(z));
+                    Log.w("Z=", String.valueOf(z));
+                    Log.w("Nome da Task:",tasksx.get(z).getName());
                 }
             }
         });
     }
+
+
 
     @Override
     public int getItemCount() {

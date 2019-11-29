@@ -18,6 +18,7 @@ public class Task implements Parcelable {
     private String name;
     private String creationTime;
     private int photoId;
+    private int  toFirstTask;
 
     // Constructors
 
@@ -38,6 +39,7 @@ public class Task implements Parcelable {
         this.name = name;
         this.creationTime = creationTime;
         this.photoId = photoId;
+        this.toFirstTask =1;
     }
     public Task(int Id, String name,int doTimes, String creationTime) {
         this.doTimes = doTimes;
@@ -52,6 +54,15 @@ public class Task implements Parcelable {
 
     }
     // Getters and Setters
+
+
+    public int getToFirstTask() {
+        return toFirstTask;
+    }
+
+    public void setToFirstTask(int toFirstTask) {
+        this.toFirstTask = toFirstTask;
+    }
 
     public int getPhotoId() {
         return photoId;

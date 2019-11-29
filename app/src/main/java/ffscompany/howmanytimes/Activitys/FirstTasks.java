@@ -35,8 +35,6 @@ public class FirstTasks extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_tasks);
-        getWindow().setStatusBarColor(0XD3272750);
-        getSupportActionBar().hide();
         task = new Task();
         tasksFirstTask = new ArrayList<>();
         tasksFirstTask = (ArrayList<Task>) task.initializeData();

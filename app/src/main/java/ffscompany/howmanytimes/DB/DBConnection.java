@@ -7,9 +7,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBConnection extends SQLiteOpenHelper {
     //DB Stats
-    public static final String DBNAME = "howmanytimes.db";
+    public static final String DBNAME = "a5.db";
     // Versão
-    public static final int VERSAO = 1;
+    public static final int VERSAO = 10;
     //Tables
     public static final String USER = "USER";
     public static final String TASK = "TASK";

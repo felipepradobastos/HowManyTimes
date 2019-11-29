@@ -35,27 +35,22 @@ public class Main extends AppCompatActivity {
         task = new Task();
         Listtasks = new ArrayList<>();
 
-
         imgAdd = (ImageView) findViewById(R.id.ImgViewMainActivity);
         rvMain = (RecyclerView) findViewById(R.id.rvMain);
 
         TaskDAO crud = new TaskDAO(getApplicationContext());
-        Cursor dao =crud.getTasks();
-        if(dao.getColumnCount()==0){
+        Cursor dao = crud.getTasks();
 
-        }else{
-            while (dao.moveToNext()) {
-                int id = dao.getInt(dao.getColumnIndex("ID"));
-                String nome = dao.getString(dao.getColumnIndex("NAME"));
-                int doTimes = dao.getInt(dao.getColumnIndex("DOTIMES"));
-                String creationdate = dao.getString(dao.getColumnIndex("CREATION_DATE"));
-                int PHOTOID = dao.getInt(dao.getColumnIndex("PHOTOID"));
-                if(PHOTOID>0){
-                    Task taskZada = new Task(id, nome,doTimes,creationdate,PHOTOID);
-                    Listtasks.add(taskZada);
-                }
-            }
+        while (dao.moveToNext()) {
+            int id = dao.getInt(dao.getColumnIndex("ID"));
+            String nome = dao.getString(dao.getColumnIndex("NAME"));
+            int doTimes = dao.getInt(dao.getColumnIndex("DOTIMES"));
+            String creationdate = dao.getString(dao.getColumnIndex("CREATION_DATE"));
+            int PHOTOID = dao.getInt(dao.getColumnIndex("PHOTOID"));
+            Task taskZada = new Task(id, nome, doTimes, creationdate, PHOTOID);
+            Listtasks.add(taskZada);
         }
+
 
         LinearLayoutManager llm = new LinearLayoutManager(getApplicationContext());
         rvMain.setLayoutManager(llm);
